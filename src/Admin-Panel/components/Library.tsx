@@ -215,10 +215,9 @@ const Library = () => {
             </div>
           )}
 
-          {/* Modal de confirmación para eliminar */}
           {showDeleteModal && selectedBook && (
             <div
-              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+              className="fixed inset-0 z-50 bg-black/20 backdrop-blur-md flex items-center justify-center"
               onClick={() => {
                 setShowDeleteModal(false);
                 setSelectedBook(null);
@@ -227,16 +226,16 @@ const Library = () => {
               aria-modal="true"
             >
               <div
-                className="bg-white p-6 rounded shadow max-w-sm w-full"
+                className="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 className="text-xl font-semibold mb-4">Eliminar libro</h2>
-                <p className="mb-6">
+                <h2 className="text-xl font-semibold mb-4 text-[#1A3D33]">Eliminar libro</h2>
+                <p className="mb-6 text-gray-700">
                   ¿Estás seguro que quieres eliminar <strong>{selectedBook.title}</strong>?
                 </p>
                 <div className="flex justify-end gap-4">
                   <button
-                    className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100"
+                    className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100 transition"
                     onClick={() => {
                       setShowDeleteModal(false);
                       setSelectedBook(null);
@@ -245,7 +244,7 @@ const Library = () => {
                     Cancelar
                   </button>
                   <button
-                    className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700"
+                    className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700 transition"
                     onClick={handleDelete}
                     disabled={loading}
                   >
